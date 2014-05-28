@@ -1,0 +1,85 @@
+Name         : kf5-kxmlgui
+Version      : 4.99.0
+Release      : 1
+Group        : System/Base
+License      : GPLv2+
+Summary      : KDE Frameworks 5 Tier 3 solution for generating UI
+Description  : |
+  KDE Frameworks 5 Tier 3 solution for generating UI
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kf5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
+    - kf5-kitemviews-devel
+    - kf5-kconfig-devel
+    - kf5-kglobalaccel-devel
+    - kf5-kconfigwidgets-devel
+    - kf5-ki18n-devel
+    - kf5-kiconthemes-devel
+    - kf5-ktextwidgets-devel
+    - kf5-kwidgetsaddons-devel
+    - kf5-kwindowsystem-devel
+    - kf5-attica-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+Requires:
+    - kf5-filesystem
+
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%doc COPYING.LIB README.md"
+    - "%{_kf5_libdir}/libKF5XmlGui.so.*"
+    - "%{_kf5_sysconfdir}/xdg/ui/ui_standards.rc"
+    - "%{_kf5_libexecdir}/ksendbugmail"
+    - "%{_kf5_datadir}/kf5/kxmlgui/"
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications
+        that use %{name}.
+      Requires:
+          - kf5-kitemviews-devel
+          - kf5-kconfig-devel
+          - kf5-kglobalaccel-devel
+          - kf5-kconfigwidgets-devel
+          - kf5-ki18n-devel
+          - kf5-kiconthemes-devel
+          - kf5-ktextwidgets-devel
+          - kf5-kwidgetsaddons-devel
+          - kf5-kwindowsystem-devel
+          - kf5-attica-devel
+      Files:
+          - "%{_kf5_includedir}/kxmlgui_version.h"
+          - "%{_kf5_includedir}/KXmlGui"
+          - "%{_kf5_libdir}/libKF5XmlGui.so"
+          - "%{_kf5_libdir}/cmake/KF5XmlGui"
+          - "%{_datadir}/qt5/mkspecs/modules/qt_KXmlGui.pri"
