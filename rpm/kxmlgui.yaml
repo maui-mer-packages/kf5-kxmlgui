@@ -1,5 +1,5 @@
-Name         : kf5-kxmlgui
-Version      : 5.0.0
+Name         : kxmlgui
+Version      : 5.1.0
 Release      : 1
 Group        : System/Base
 License      : GPLv2+
@@ -25,16 +25,16 @@ PkgBR:
     - kf5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
-    - kf5-kitemviews-devel
-    - kf5-kconfig-devel
-    - kf5-kglobalaccel-devel
-    - kf5-kconfigwidgets-devel
-    - kf5-ki18n-devel
-    - kf5-kiconthemes-devel
-    - kf5-ktextwidgets-devel
-    - kf5-kwidgetsaddons-devel
-    - kf5-kwindowsystem-devel
-    - kf5-attica-devel
+    - kitemviews-devel
+    - kconfig-devel
+    - kglobalaccel-devel
+    - kconfigwidgets-devel
+    - ki18n-devel
+    - kiconthemes-devel
+    - ktextwidgets-devel
+    - kwidgetsaddons-devel
+    - kwindowsystem-devel
+    - attica-devel
 PkgConfigBR:
     - Qt5Core
     - Qt5DBus
@@ -56,9 +56,9 @@ RequiresPostUn:
 Files:
     - "%doc COPYING.LIB README.md"
     - "%{_kf5_libdir}/libKF5XmlGui.so.*"
-    - "%{_kf5_sysconfdir}/xdg/ui/ui_standards.rc"
+    - "%{_kf5_configdir}/ui/ui_standards.rc"
     - "%{_kf5_libexecdir}/ksendbugmail"
-    - "%{_kf5_datadir}/kf5/kxmlgui/"
+    - "%{_kf5_datadir}/kxmlgui/"
 
 SubPackages:
     - Name: devel
@@ -68,19 +68,19 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Requires:
-          - kf5-kitemviews-devel
-          - kf5-kconfig-devel
-          - kf5-kglobalaccel-devel
-          - kf5-kconfigwidgets-devel
-          - kf5-ki18n-devel
-          - kf5-kiconthemes-devel
-          - kf5-ktextwidgets-devel
-          - kf5-kwidgetsaddons-devel
-          - kf5-kwindowsystem-devel
-          - kf5-attica-devel
+          - kitemviews-devel
+          - kconfig-devel
+          - kglobalaccel-devel
+          - kconfigwidgets-devel
+          - ki18n-devel
+          - kiconthemes-devel
+          - ktextwidgets-devel
+          - kwidgetsaddons-devel
+          - kwindowsystem-devel
+          - attica-devel
       Files:
           - "%{_kf5_includedir}/kxmlgui_version.h"
           - "%{_kf5_includedir}/KXmlGui"
           - "%{_kf5_libdir}/libKF5XmlGui.so"
-          - "%{_kf5_libdir}/cmake/KF5XmlGui"
-          - "%{_datadir}/qt5/mkspecs/modules/qt_KXmlGui.pri"
+          - "%{_kf5_cmakedir}/KF5XmlGui"
+          - "%{_kf5_mkspecsdir}/qt_KXmlGui.pri"
