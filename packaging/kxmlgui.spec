@@ -10,7 +10,7 @@ Name:       kxmlgui
 
 Summary:    KDE Frameworks 5 Tier 3 solution for generating UI
 Version:    5.3.0
-Release:    1
+Release:    2
 Group:      System/Base
 License:    GPLv2+
 URL:        http://www.kde.org
